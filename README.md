@@ -2,12 +2,13 @@
 
 #### 效果展示
 
-![屏幕快照 2019-07-12 下午5.58.30](./showImg/1.png)
 
-![屏幕快照 2019-07-12 下午5.58.48](./showImg/2.png)
 
-![屏幕快照 2019-07-12 下午5.59.01](./showImg/3.png)
+<div style="background:#a4ffc9;padding:50px">
+  <img src="./showImg/1.png" width="30%"style="padding:10px"/>
+  <img src="./showImg/2.png" width="30%"style="padding:10px"/>
+  <img src="./showImg/3.png" width="30%"style="padding:10px"/>
+  <img src="./showImg/4.png" width="30%"style="padding:10px"/>
+  <img src="./showImg/5.png" width="30%"style="padding:10px"/>
+</div>
 
-![屏幕快照 2019-07-12 下午5.59.12](./showImg/4.png)
-
-![屏幕快照 2019-07-12 下午5.59.24](./showImg/5.png)
