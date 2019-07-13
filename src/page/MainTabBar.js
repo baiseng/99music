@@ -12,7 +12,7 @@ class MainTabBar extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            selectedTab: 'accountTab',
+            selectedTab: 'friendTab',
             hidden: false,
             fullScreen: true,
         };

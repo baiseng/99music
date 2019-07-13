@@ -4,11 +4,16 @@
 
 
 
-<div style="background:#a4ffc9;padding:50px">
-  <img src="./showImg/1.png" width="30%"style="padding:10px"/>
-  <img src="./showImg/2.png" width="30%"style="padding:10px"/>
-  <img src="./showImg/3.png" width="30%"style="padding:10px"/>
-  <img src="./showImg/4.png" width="30%"style="padding:10px"/>
-  <img src="./showImg/5.png" width="30%"style="padding:10px"/>
-</div>
+  <img src="./showImg/1.png" width="30%"/>
+  
+  <img src="./showImg/2.png" width="30%"/>
+  
+  <img src="./showImg/3.png" width="30%"/>
+  
+  <img src="./showImg/4.png" width="30%"/>
+  
+  <img src="./showImg/5.png" width="30%"/>
+  
+  <img src="./showImg/6.png" width="30%"/>
+  
 
