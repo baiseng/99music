@@ -1,5 +1,5 @@
 import React from "react";
-import ComNavBar from '../../components/ComNavBar'
+import ComMainNavBar from '../../components/ComMainNavBar'
 import ComGrid from './components/ComGrid'
 import ComMyList from "./components/ComMyList";
 import ComSingsSet from "./components/ComSingsSet";
@@ -7,7 +7,7 @@ class MyMain extends React.Component {
     render() {
         return (
             <div>
-                <ComNavBar/>
+                <ComMainNavBar/>
                 <ComGrid/>
                 <div>
                     <ComMyList/>

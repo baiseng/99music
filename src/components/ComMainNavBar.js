@@ -1,7 +1,7 @@
 import { NavBar } from 'antd-mobile';
 import React from 'react';
 
-class ComNavBar extends React.Component{
+class ComMainNavBar extends React.Component{
 
     render() {
         return(
@@ -17,4 +17,4 @@ class ComNavBar extends React.Component{
     }
 }
 
-export  default ComNavBar
+export  default ComMainNavBar

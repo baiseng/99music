@@ -1,52 +1,45 @@
 import React from 'react';
 import { Carousel, WingBlank } from 'antd-mobile';
+import axios from 'axios'
 
 class ComCarousel extends React.Component {
     state = {
-        data: [
-            'http://p1.music.126.net/8LQ4HkqJ0BA81kodH6VSag==/109951164205411978.jpg',
-            'http://p1.music.126.net/eX6Rt0uAqjKXSt0aw9Rjwg==/109951164205894624.jpg',
-            'http://p1.music.126.net/6BkO331aD8pMoSpqjPOyPg==/109951164206298674.jpg'
+        banners:[
+            {pic: "http://p1.music.126.net/FO8UwGJgs2o0v792EX7DfA==/109951164209688558.jpg"},
+            {pic: "http://p1.music.126.net/8LQ4HkqJ0BA81kodH6VSag==/109951164205411978.jpg"},
+            {pic: "http://p1.music.126.net/6BkO331aD8pMoSpqjPOyPg==/109951164206298674.jpg"},
         ],
         imgHeight: 176,
     };
-    componentDidMount() {
-        // simulate img loading
-        setTimeout(() => {
-            this.setState({
-                data: [
-                    'http://p1.music.126.net/8LQ4HkqJ0BA81kodH6VSag==/109951164205411978.jpg',
-                    'http://p1.music.126.net/eX6Rt0uAqjKXSt0aw9Rjwg==/109951164205894624.jpg',
-                    'http://p1.music.126.net/6BkO331aD8pMoSpqjPOyPg==/109951164206298674.jpg'
-                ]
-            });
-        }, 100);
+    componentWillMount() {
+        axios.get('/banner?type=2').then(({data})=>{
+            if (data.code === 200) {
+                this.setState({
+                    banners:data.banners
+                })
+            }
+        })
     }
     render() {
         return (
             <WingBlank>
-                <Carousel
-                    autoplay={true}
+                <Carousel autoplay={true}
                     infinite
                     beforeChange={(from, to) => {}}
-                    afterChange={index => {}}
-                >
-                    {this.state.data.map(val => (
-                        <a
-                            key={val}
+                    afterChange={index => {}}>
+                    {this.state.banners.map((v,i) => (
+                        <a key={i}
                             href="https://music.163.com/#"
-                            style={{ display: 'inline-block', width: '100%', height: this.state.imgHeight }}
-                        >
+                            style={{ display: 'inline-block', width: '100%', height: this.state.imgHeight }}>
                             <img
-                                src={val}
+                                src={v.pic}
                                 alt=""
                                 style={{ width: '100%', verticalAlign: 'top' }}
                                 onLoad={() => {
                                     // fire window resize event to change height
                                     window.dispatchEvent(new Event('resize'));
                                     this.setState({ imgHeight: 'auto' });
-                                }}
-                            />
+                                }}/>
                         </a>
                     ))}
                 </Carousel>

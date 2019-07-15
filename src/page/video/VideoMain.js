@@ -1,54 +1,47 @@
 import React from "react";
-import ComNavBar from '../../components/ComNavBar'
+import ComMainNavBar from '../../components/ComMainNavBar'
 import { Tabs } from 'antd-mobile';
-import Recommend from './page/Recommend'
-import LookLive from './page/LookLive'
-import Scene from './page/Scene'
-import CoverUp from './page/CoverUp'
-import Square from './page/Square'
-import MV from './page/MV'
-import Dance from './page/Dance'
-import ACGMusic from './page/ACGMusic'
-import Adorable from './page/Adorable'
-import Life from './page/Life'
-import FansMade from './page/FansMade'
+import VideoList from './page/VideoList'
 
 class VideoMain extends React.Component {
-    tabs = [
-        { title: '推荐'},
-        { title: 'LOOK直播'},
-        { title: '现场'},
-        { title: '翻唱' },
-        { title: '广场' },
-        { title: 'MV' },
-        { title: '舞蹈' },
-        { title: 'ACG音乐'},
-        { title: '萌宠' },
-        { title: '生活' },
-        { title: '最佳饭制' }
-    ];
+    constructor(prop){
+        super(prop);
+        this.state={
+            tabs :[
+                // { title: '儿歌',id:75100},
+                // { title: '粤语',id:57105},
+                // { title: '华语' ,id:59101},
+                { title: '欧美',id:57106},
+                { title: '韩语',id:57107 },
+                { title: '日语',id:60101},
+                // { title: '流行',id:57108},
+                // { title: '民谣',id:57109 },
+                // { title: '街头',id:59106},
+                // { title: '最新',id:59107 }
+            ]
+        }
+    }
     render() {
         return (
             <div>
-                <ComNavBar/>
+                <ComMainNavBar/>
                 <div>
-                    <Tabs tabs={this.tabs} renderTabBar={props => <Tabs.DefaultTabBar {...props} page={5} />}>
-                        <Recommend/>
-                        <LookLive/>
-                        <Scene/>
-                        <CoverUp/>
-                        <Square/>
-                        <MV/>
-                        <Dance/>
-                        <ACGMusic/>
-                        <Adorable/>
-                        <Life/>
-                        <FansMade/>
+                    <Tabs tabs={this.state.tabs} renderTabBar={props => <Tabs.DefaultTabBar {...props} page={5} />}>
+                        {this.state.tabs.map((v)=>{
+                            return (
+                                <VideoList key={v.id} tabId={v.id} />
+                            )
+                        })}
                     </Tabs>
                 </div>
             </div>
         )
     }
+    // render() {
+    //     return(
+    //         <div>视频太多，暂时不加载</div>
+    //     )
+    // }
 }
 
 export default VideoMain

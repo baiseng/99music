@@ -11,3 +11,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+
+.zlTouMing .am-grid .am-flexbox{
+  background: rgba(0,0,0,0);
+}

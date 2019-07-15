@@ -1,5 +1,5 @@
 import React from "react";
-import ComNavBar from '../../components/ComNavBar'
+import ComMainNavBar from '../../components/ComMainNavBar'
 import { Tabs } from 'antd-mobile';
 import Dynamics from "./page/Dynamics";
 import Nearby from "./page/Nearby";
@@ -12,7 +12,7 @@ class FriendMain extends React.Component {
     render() {
         return (
             <div>
-                <ComNavBar/>
+                <ComMainNavBar/>
                 <div>
                     <Tabs tabs={this.tabs} renderTabBar={props => <Tabs.DefaultTabBar {...props} page={5} />}>
                         <Dynamics/>

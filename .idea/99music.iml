@@ -9,5 +9,25 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="@types/babel-core" level="application" />
+    <orderEntry type="library" name="@types/body-parser" level="application" />
+    <orderEntry type="library" name="@types/cheerio" level="application" />
+    <orderEntry type="library" name="@types/element-resize-detector" level="application" />
+    <orderEntry type="library" name="@types/element-resize-event" level="application" />
+    <orderEntry type="library" name="@types/elementtree" level="application" />
+    <orderEntry type="library" name="@types/elm" level="application" />
+    <orderEntry type="library" name="@types/express" level="application" />
+    <orderEntry type="library" name="@types/jquery" level="application" />
+    <orderEntry type="library" name="@types/jwt-simple" level="application" />
+    <orderEntry type="library" name="@types/lodash" level="application" />
+    <orderEntry type="library" name="@types/md5" level="application" />
+    <orderEntry type="library" name="@types/mongodb" level="application" />
+    <orderEntry type="library" name="@types/puppeteer" level="application" />
+    <orderEntry type="library" name="@types/react" level="application" />
+    <orderEntry type="library" name="@types/react-dom" level="application" />
+    <orderEntry type="library" name="@types/request" level="application" />
+    <orderEntry type="library" name="@types/sequelize" level="application" />
+    <orderEntry type="library" name="antd" level="application" />
+    <orderEntry type="library" name="axios" level="application" />
   </component>
 </module>
