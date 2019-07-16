@@ -1,12 +1,11 @@
 import React from 'react';
-import MainTabBar from './page/MainTabBar'
 import './App.css';
 
-import TestRouter from './page/TestRouter'
+import MainRouterBar from './page/MainRouterBar'
 
 function App() {
   return (
-    <MainTabBar/>
+      <MainRouterBar/>
   );
 }
 

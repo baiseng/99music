@@ -33,19 +33,19 @@ class SongSheet extends React.Component{
             playlist:{
                 id: 2880791583,
                 name:'听歌识人：哪一首故事，是你的故事',
-                coverImgUrl: "http://p1.music.126.net/2XWY_6zJ9vAsnXIRCYQeiw==/109951164208685267.jpg",
+                coverImgUrl: "",
                 description:'那个与你心有灵犀一起听歌的人你遇见了吗？ 你们安静地不说话，无声地用音乐交流。 要是遇见那样一个人，该多好啊。 想把那些我爱过的歌都变成我们共同的经历，那样的话，每次我们一听到那首歌就会想起对方啦。 封面图源网络',
-                playCount:'1347598',
+                playCount:'1111111',
                 creator:{
                     nickname:'网易云音乐',
                     avatarUrl: "http://p1.music.126.net/QWMV-Ru_6149AKe0mCBXKg==/1420569024374784.jpg"
                 },
                 ordered:true,
-                commentCount:332,
-                shareCount:77,
-                trackCount:40,
+                commentCount:111,
+                shareCount:22,
+                trackCount:33,
                 subscribed:false,
-                subscribedCount:18137,
+                subscribedCount:4444,
                 tracks:[
                     {
                         id: 571338279,
@@ -71,18 +71,20 @@ class SongSheet extends React.Component{
         }
     }
     componentWillMount() {
-
-        axios.get('/playlist/detail?id=2880791583').then(({data})=>{
-            if (data.code===200){
-                this.setState({
-                    playlist:data.playlist
-                });
-                if (this.state.playlist) {
-                    mData[0].text=this.state.playlist.commentCount;
-                    mData[1].text=this.state.playlist.shareCount;
+        let id=this.props.location.state.id;
+        if (id){
+            axios.get('/playlist/detail?id='+id).then(({data})=>{
+                if (data.code===200){
+                    this.setState({
+                        playlist:data.playlist
+                    });
+                    if (this.state.playlist) {
+                        mData[0].text=this.state.playlist.commentCount;
+                        mData[1].text=this.state.playlist.shareCount;
+                    }
                 }
-            }
-        });
+            });
+        }
     }
 
     render() {
@@ -98,12 +100,12 @@ class SongSheet extends React.Component{
                         <ComReturnNavBar style={{background:'rgba(0,0,0,0)',color:'white'}} title={'歌单'}/>
 
                         {/*  userHead  创建歌单者信息 */}
-                        <div style={{margin:'10px 0'}}>
-                            <div style={{float:"left",width:'42%',padding:'10px',position:"relative"}}>
+                        <div style={{margin:'10px 0',}}>
+                            <div style={{float:"left",width:'42%',padding:'10px',position:"relative",boxSizing:"border-box"}}>
                                 <img src={this.state.playlist.coverImgUrl} style={{width:'100%'}} alt={''}/>
                                 <span className={'iconfont icon-play'} style={{position:"absolute",right:'15px',fontSize:'14px'}}>{Math.floor(this.state.playlist.playCount/10000)+'万'}</span>
                             </div>
-                            <div style={{float:'right',width:'58%',padding:'10px'}}>
+                            <div style={{float:'right',width:'58%',padding:'10px',boxSizing:"border-box",textAlign:"left"}}>
                                 <p style={{fontSize:'20px',margin:'0'}}>{this.state.playlist.name}</p>
                                 <div style={{padding:'10px 0'}}>
                                     <div style={{display:'inline-block',height:'30px'}}>
@@ -113,7 +115,7 @@ class SongSheet extends React.Component{
                                 </div>
                                 <div>
                                     <div style={{margin:0,fontSize:'14px',display:"inline-block", float:"left",width:'80%'}}>{this.state.playlist.description.slice(0,20)}</div>
-                                    <div className={'iconfont icon-right'} style={{display:"inline-block" ,float:"right",width:'20%',lineHeight:'32px',paddingLeft:'10px'}}/>
+                                    <div className={'iconfont icon-right'} style={{display:"inline-block" ,float:"right",width:'20%',lineHeight:'32px',paddingLeft:'10px',boxSizing:"border-box"}}/>
                                 </div>
                             </div>
                         </div>

@@ -13,8 +13,7 @@ class VideoList extends React.Component {
         }
     }
     componentWillMount() {
-        axios.get('http://swmonk.top:3000/video/group?id='+this.state.tabId).then(({data})=>{
-            console.log(111,data);
+        axios.get('/video/group?id='+this.state.tabId).then(({data})=>{
             if (data.code === 200) {
                 this.setState({
                     datas:data.datas

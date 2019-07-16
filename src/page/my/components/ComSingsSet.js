@@ -20,7 +20,7 @@ class ComSingsSet extends React.Component {
 
     render() {
         return (<div>
-            <div style={{background:'white',width:'100%',height:'50px',lineHeight:'50px',fontSize:'18px',paddingLeft:'20px',marginTop:'10px'}}>
+            <div style={{background:'white',width:'100%',height:'50px',lineHeight:'50px',fontSize:'18px',paddingLeft:'20px',marginTop:'10px',boxSizing:"border-box"}}>
                 <div style={{float:'left'}}>我创建的歌单(2)</div>
                 <div style={{float:'right'}}><i/></div>
             </div>
@@ -37,7 +37,7 @@ class ComSingsSet extends React.Component {
                     )
                 })}
             </List>
-            <div style={{background:'white',width:'100%',height:'50px',lineHeight:'50px',fontSize:'18px',paddingLeft:'20px',marginTop:'10px'}}>
+            <div style={{background:'white',width:'100%',height:'50px',lineHeight:'50px',fontSize:'18px',paddingLeft:'20px',marginTop:'10px',boxSizing:"border-box"}}>
                 <div style={{float:'left'}}>我收藏的歌单(1)</div>
                 <div style={{float:'right'}}><i/></div>
             </div>

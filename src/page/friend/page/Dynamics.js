@@ -1,6 +1,7 @@
 import React from "react";
 import { Flex } from 'antd-mobile';
-import ComCart from "../components/ComCart";
+import ComDynamicsCart from "../components/ComDynamicsCart";
+import axios from "axios";
 
 const pubList=[
     {icon:'iconfont icon-edit',text:'发动态'},
@@ -8,6 +9,22 @@ const pubList=[
 ];
 
 class Dynamics extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state={
+          event:[]
+        };
+    }
+
+    componentWillMount() {
+        axios.get('/event?pagesize=3&lasttime'+Date.now()).then(({data}) => {
+            data.event.forEach(v => {
+                v.json=JSON.parse(v.json);
+            });
+            this.setState(data)
+        });
+    }
+
     render() {
         return (
             <div>
@@ -22,8 +39,11 @@ class Dynamics extends React.Component {
                         )
                     })}
                 </Flex>
-                <ComCart/>
-                <ComCart/>
+                {this.state.event.map((v,i)=>{
+                    return(
+                        <ComDynamicsCart data={v} key={i}/>
+                        )
+                })}
             </div>
         )
     }

@@ -1,6 +1,6 @@
 import React from "react";
 import {Card, Badge, WhiteSpace} from 'antd-mobile';
-import Player from 'griffith'
+import ComVideo from "../../../components/ComVideo";
 
 
 class ComVideoCart extends React.Component {
@@ -28,27 +28,19 @@ class ComVideoCart extends React.Component {
             //         r: 480
             //     },
             // }
-            imgUrl: 'https://p2.music.126.net/YkBNUTCKaniRy-gqr5X03g==/109951163571880576.jpg',
-            sources: {
-                hd: {
-                    bitrate: 1,
-                    duration: 22221,
-                    format: '',
-                    height: 100,
-                    width: 100,
-                    size:this.props.videoData.urlInfo.size,
-                    play_url: this.props.videoData.urlInfo.url,
-                }
-            }
+
         };
 
     }
-    componentWillMount() {
+
+    static parseTime(ms){
+        let s=ms/1000;
+        return Math.floor(s/60)+':'+Math.ceil(s%60)
     }
 
     render() {
         return (
-            <div>
+            <div style={{textAlign:"left"}}>
                 <WhiteSpace size="xs"/>
                 <Card full>
                     <Card.Body>
@@ -56,8 +48,15 @@ class ComVideoCart extends React.Component {
                             width: '100%',
                             position: 'relative',
                         }}>
-                            <Player id={this.state.videoData.coverUrl} cover={this.state.videoData.coverUrl} duration={this.state.videoData.durationms} sources={this.state.sources}
-                                    error={null}/>
+
+                            {/* 是用自己的视频播放器组件  */}
+                            <ComVideo
+                                videoSrc={this.state.videoData.urlInfo.url}
+                                coverImgUrl={this.state.videoData.coverUrl}
+                                lbEl={(<span className={'iconfont icon-play'}>190万</span>)}
+                                rtEl={(<div style={{padding:'4px',border:'1px solid',borderRadius:'10px'}}>电影</div>)}
+                                rbEl={(<span className={'iconfont icon-icranking'}>{ComVideoCart.parseTime(this.state.videoData.durationms)}</span>)}
+                                centerEl={(<div style={{position:"absolute",left:'-20px',top:'-20px'}}><i className={'iconfont icon-play1'} style={{fontSize:'40px'}}/></div>)}/>
                         </div>
                         <div style={{lineHeight: '20px', padding: '10px 5px'}}>{this.state.videoData.title}</div>
                     </Card.Body>

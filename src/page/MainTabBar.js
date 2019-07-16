@@ -7,14 +7,13 @@ import VideoMain from './video/VideoMain'
 import MyMain from "./my/MyMain";
 import FriendMain from "./friend/FriendMain";
 import AccountMain from "./account/AccountMain";
-import SongSheet from "./common/SongSheet";
 
 let tabs=[
     {title:'发现',key:'discover',iconfont:'iconfont icon-discover_music',tab:'discoverTab',page:(<DiscoverMain/>)},
-    {title:'视频',key:'video',iconfont:'iconfont icon-discover_music',tab:'videoTab',page:(<VideoMain/>)},
-    {title:'我的',key:'my',iconfont:'iconfont icon-discover_music',tab:'myTab',page:(<MyMain/>)},
-    {title:'朋友',key:'friend',iconfont:'iconfont icon-discover_music',tab:'friendTab',page:(<FriendMain/>)},
-    {title:'账号',key:'account',iconfont:'iconfont icon-discover_music',tab:'accountTab',page:(<AccountMain/>)}
+    {title:'视频',key:'video',iconfont:'iconfont icon-video',tab:'videoTab',page:(<VideoMain/>)},
+    {title:'我的',key:'my',iconfont:'iconfont icon-music',tab:'myTab',page:(<MyMain/>)},
+    {title:'朋友',key:'friend',iconfont:'iconfont icon-friends',tab:'friendTab',page:(<FriendMain/>)},
+    {title:'账号',key:'account',iconfont:'iconfont icon-me',tab:'accountTab',page:(<AccountMain/>)}
 ];
 
 class MainTabBar extends React.Component {
@@ -36,11 +35,11 @@ class MainTabBar extends React.Component {
                     barTintColor="white"
                     hidden={this.state.hidden}
                     prerenderingSiblingsNumber={0}>
-                    {tabs.map((v,i)=>{
+                    {tabs.map((v)=>{
                         return(
                             <TabBar.Item
-                                key={v.key}
                                 title={v.title}
+                                key={v.key}
                                 icon={<div style={{
                                     width: '22px',
                                     height: '22px',

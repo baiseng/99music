@@ -3,8 +3,8 @@ import { NavBar, Icon } from 'antd-mobile';
 
 
 class ComReturnNavBar extends React.Component{
-    constructor(prop){
-        super(prop);
+    constructor(props){
+        super(props);
         this.state={
             style:{
                 color:'black'
@@ -19,7 +19,10 @@ class ComReturnNavBar extends React.Component{
                 <NavBar
                     mode="light"
                     icon={<Icon type="left" />}
-                    onLeftClick={() => console.log('onLeftClick')}
+                    onLeftClick={() => {
+                        console.log('onLeftClick');
+                        window.history.go(-1);
+                    }}
                     style={this.state.style}
                     rightContent={[
                         <Icon key="0" type="search" style={{ marginRight: '16px' }} />,
